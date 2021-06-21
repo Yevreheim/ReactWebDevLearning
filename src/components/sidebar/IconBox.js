@@ -8,7 +8,7 @@ const IconBox = styled.div
     backgroundColor: ${props => props.backgroundColor};
 `
 function onClickChange(e){
-    e.target.style.backgroundColor = '#3F6C51';
+    e.target.style.backgroundColor = '#DECBB7';
 }
 class IconBoxReturn extends React.Component {
     constructor(props) {
@@ -24,7 +24,7 @@ class IconBoxReturn extends React.Component {
     }
     hoverOn(){
         this.setState({isHovered: true});
-        this.setState({w: '200px'});
+        //this.setState({w: '200px'});
     }
     hoverOff(){
         this.setState({isHovered: false});
@@ -44,7 +44,8 @@ class IconBoxReturn extends React.Component {
         }
         //Result
         return (
-            <div >
+            <div onClick={onClickChange}>
+                {this.props.children}
                 {Box}
             </div>
         )
