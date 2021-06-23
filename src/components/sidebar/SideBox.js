@@ -52,7 +52,7 @@ class SideBoxClass extends React.Component{
                         {this.state.isToggleOn 
                             ? 'ON' 
                             :  <div>
-                                    Off
+                                    OFF
                                     {PopOutWindow}
                                 </div> 
                             }  

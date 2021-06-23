@@ -19,12 +19,13 @@ class IconBoxReturn extends React.Component {
         this.state = {
             w: 'max-Width',
             h: '55px',
+            backgroundColor: '#495159',
             isHovered: false
         };
     }
     hoverOn(){
         this.setState({isHovered: true});
-        //this.setState({w: '200px'});
+        
     }
     hoverOff(){
         this.setState({isHovered: false});
