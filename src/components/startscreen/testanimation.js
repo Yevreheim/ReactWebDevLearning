@@ -19,7 +19,7 @@ function LoopTrue(props) {
     var RandomColour = ColourArray[RandomInt(6)];
     
     return (
-      <div onMouseLeave={() => set(state => !state)}>
+      <div onMouseEnter={() => set(state => !state)}>
         <animated.div
           style={{
             width: 90,
