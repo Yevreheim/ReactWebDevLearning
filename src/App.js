@@ -12,7 +12,6 @@ let AppDisplay = styled.div
   backgroundColor: ${props => props.backgroundColor};
 `
 
-
 class App extends React.Component{
     constructor(props){
       super(props)
@@ -24,24 +23,24 @@ class App extends React.Component{
       }
     }
 
-
     render(){
       var WindowWidth = window.innerWidth;
-      var WidthRound = Math.ceil(WindowWidth/100);
+      var WidthRound = Math.ceil(WindowWidth / 100);
       var WindowHeight = window.innerHeight;
-      var HeightRound = Math.ceil(WindowHeight/100);
-      
-
+      var HeightRound = Math.ceil(WindowHeight / 100);
+      const TestArray = [];
+      for (let indexHeight = 0; indexHeight < HeightRound; ++indexHeight) {
+        for (let indexWidth = 0; indexWidth < WidthRound; ++indexWidth) {
+          var SquareX = indexWidth * 100;
+          var SquareY = indexHeight * 100;
+          TestArray.push({ x: SquareX, y: SquareY});
+        }
+      }
       let AppOutput =
         <div>
           <AppDisplay style={{width:this.state.w, height: this.state.h, backgroundColor: this.state.backgroundColor,position: this.state.position}}>
-            {/* <TopBarClass/> */}
-            <div>
-              {WindowWidth}
-              <br/>
-              {WindowHeight}
-              <LoopTrue backgroundColor='#46e891' x = '47.5vw' y ='50vh'/>
-            </div>
+              {TestArray.map(({x,y})=> 
+                <LoopTrue x={x} y={y}/>)}
           </AppDisplay>
         </div>
       return(

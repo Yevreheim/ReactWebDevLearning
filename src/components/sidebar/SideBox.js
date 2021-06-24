@@ -12,7 +12,7 @@ class SideBoxClass extends React.Component{
     constructor(props){
         super(props)
         this.mouseHoverOff = this.mouseHoverOff.bind(this);
-        this.mouseHoverOn = this.mouseHoverOn.bind(this)
+        this.mouseHoverOn = this.mouseHoverOn.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.state ={
             w: '55px',
