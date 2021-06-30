@@ -39,8 +39,7 @@ class App extends React.Component{
       let AppOutput =
         <div>
           <AppDisplay style={{width:this.state.w, height: this.state.h, backgroundColor: this.state.backgroundColor,position: this.state.position}}>
-              {TestArray.map(({x,y})=> 
-                <LoopTrue x={x} y={y}/>)}
+              {TestArray.map(({x,y})=> <LoopTrue x={x} y={y}/>)}
           </AppDisplay>
         </div>
       return(

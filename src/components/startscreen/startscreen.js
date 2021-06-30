@@ -1,12 +1,20 @@
 import styled from '@emotion/styled'
 import React from "react";
 import {useSpring, animated} from react-useSpring;
+
 let MiddleSquare = styled.div
 `
     width: ${props => props.width};
     height: ${props => props.height};
     backgroundColor: ${props => props.backgroundColor};
 `
+function Nicaea (props){
+    return(
+        <div>
+            
+        </div>
+    )
+}
 
 class StartScreen extends React.Component{
 
