@@ -1,5 +1,5 @@
 import { useSpring, animated } from 'react-spring'
-import React, {useEffect} from 'react';
+import React from 'react';
 import { useState } from 'react';
 
 function RandomInt(max) {
@@ -11,44 +11,41 @@ function getRandomArbitrary(min, max) {
 }
 
 function LoopTrue(props) {
-  const ColourArray = ['#46e891', '#E5446D', '#FF8966', '#FEC9F1', '#FFC233', '#4381C1'];
-  var RandomColour = ColourArray[RandomInt(6)];
-
-  const [flipped, set] = useState(false);
-  const { transform, opacity } = useSpring({
-    opacity: flipped ? 1 : 0,
-    transform: `perspective(600px) 
-                  rotateX(${flipped ? 180 : 0}deg) 
-                  rotateZ(${flipped ? 180 : 0}deg)`,
-    config: { mass: 5, tension: 750, friction: 80 },
-  })
+  const ColourArray= ['#46e891', '#E5446D', '#FF8966', '#FEC9F1', '#FFC233', '#4381C1'];
+  //Green, Red, Orange, Pink, Yellow, Blue
+  // const [BGUnit, BGUnitIncrement] = useState(RandomInt(6));
+  const [BackgroundColorTest, BGIncrement] = useState(ColourArray[RandomInt(6)]);
+  // eslint-disable-next-line
+  const [SquareTime, SquareTimeAPI] = useState(getRandomArbitrary(500,1000));
 
   const styles = useSpring({
-    loop: {reverse: true},
-    from: { opacity: 1},
-    config: {duration: getRandomArbitrary(750,2000)},
-    to: { opacity: 0, background: ColourArray[RandomInt(6)]},
+    loop: true,
+    from: {opacity: 1, backgroundColor: BackgroundColorTest},
+    to: {
+      opacity: 0, 
+      // backgroundColor: BackgroundColorTest,
+    },
+    onRest: {
+      opacity: () => {BGIncrement(() => ColourArray[RandomInt(6)])},
+      // duration: () => {SquareTimeAPI(SquareTime => getRandomArbitrary(500,2000))},
+    },
+    config: {duration: SquareTime},
   })
-  // const { styles, api } = useSpring(() => ({
-  //   opacity: 1
-  // }))
-  // useEffect(()=>{
-  //   api.start({ from: 100, to: 0 })
-  // },[])
-
-
+  
   return (
-    <div onMouseEnter={() => set(state => !state)} onClick={() => set(state => !state)}>
+    <div 
+    >
+      {/* { console.log(BGUnit) } */}
       <animated.div
         style={{
           width: 90,
           height: 90,
-          backgroundColor: RandomColour,
+          // backgroundColor: BackgroundColorTest,
           borderRadius: 16,
           position: 'fixed',
           bottom: props.y,
           left: props.x,
-          transform,
+          opacity: 1,
           ...styles
         }}
       />
