@@ -11,36 +11,32 @@ function getRandomArbitrary(min, max) {
 }
 
 function LoopTrue(props) {
-  const ColourArray= ['#46e891', '#E5446D', '#FF8966', '#FEC9F1', '#FFC233', '#4381C1'];
+  const ColourArray = ['#46e891', '#E5446D', '#FF8966', '#FEC9F1', '#FFC233', '#4381C1'];
   //Green, Red, Orange, Pink, Yellow, Blue
   // const [BGUnit, BGUnitIncrement] = useState(RandomInt(6));
   const [BackgroundColorTest, BGIncrement] = useState(ColourArray[RandomInt(6)]);
   // eslint-disable-next-line
-  const [SquareTime, SquareTimeAPI] = useState(getRandomArbitrary(500,1000));
+  const [SquareTime, SquareTimeAPI] = useState(getRandomArbitrary(500, 2000));
 
+  //Figure out implementation of reset and reverse
   const styles = useSpring({
-    loop: true,
-    from: {opacity: 1, backgroundColor: BackgroundColorTest},
-    to: {
-      opacity: 0, 
-      // backgroundColor: BackgroundColorTest,
-    },
+    to: { opacity: 0, },
+    from: { opacity: 1, backgroundColor: BackgroundColorTest },
+    loop: {reverse: true},
+    // loop: true,
     onRest: {
-      opacity: () => {BGIncrement(() => ColourArray[RandomInt(6)])},
+      //  opacity: () => { BGIncrement(BackgroundColorTest => ColourArray[RandomInt(6)])},
       // duration: () => {SquareTimeAPI(SquareTime => getRandomArbitrary(500,2000))},
     },
-    config: {duration: SquareTime},
+    config: { duration: SquareTime },
   })
-  
+
   return (
-    <div 
-    >
-      {/* { console.log(BGUnit) } */}
+    <div>
       <animated.div
         style={{
           width: 90,
           height: 90,
-          // backgroundColor: BackgroundColorTest,
           borderRadius: 16,
           position: 'fixed',
           bottom: props.y,

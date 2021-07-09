@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import React from "react";
-import {useSpring, animated} from react-useSpring;
 
 let MiddleSquare = styled.div
 `
@@ -21,14 +20,24 @@ class StartScreen extends React.Component{
     constructor(props){
         super(props)
         this.state={
-            w: '256px',
+            w: '100vw',
             h: '256px',
-            backgroundColor: '#0E3795'
+            backgroundColor: '#0E3795',
+            opacity: '0.75',
+            position: 'absolute',
+            bottom: '50vh'
+            
         }
     }
     render(){
         return(
-            <div>
+            <div style={{
+                width:this.state.w,
+                height:this.state.h,
+                backgroundColor:this.state.backgroundColor,
+                position: this.state.position,
+                bottom: this.state.bottom,
+                opacity:this.state.opacity}}>
 
             </div>
         );
