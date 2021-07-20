@@ -23,9 +23,10 @@ function LoopTrue(props) {
     to: { opacity: 0, },
     from: { opacity: 1, backgroundColor: BackgroundColorTest },
     loop: {reverse: true},
-    // loop: true,
+    // eslint-disable-next-line
+    loop: true,
     onRest: {
-      //  opacity: () => { BGIncrement(BackgroundColorTest => ColourArray[RandomInt(6)])},
+       opacity: () => { BGIncrement(BackgroundColorTest => ColourArray[RandomInt(6)])},
       // duration: () => {SquareTimeAPI(SquareTime => getRandomArbitrary(500,2000))},
     },
     config: { duration: SquareTime },

@@ -4,6 +4,7 @@ import LoopTrue from './components/startscreen/testanimation';
 import StartScreen from './components/startscreen/startscreen';
 
 
+
 let AppDisplay = styled.div
   `
   width: ${props => props.width};
@@ -12,7 +13,9 @@ let AppDisplay = styled.div
 `
 
 function ScreenToArray() {
+  // eslint-disable-next-line
   const [WindowWidth, WindowWitdhAPI] = useState(Math.ceil(window.innerWidth / 100));
+  // eslint-disable-next-line
   const [WindowHeight, WindowHeightAPI] = useState(Math.ceil(window.innerHeight / 100));
   const arrayResult = [];
   for (let indexHeight = 0; indexHeight < WindowHeight; ++indexHeight) {
@@ -39,9 +42,13 @@ function AppFunction() {
   return (
     <div>
       {AppOutput}
-      <StartScreen></StartScreen>
+      <div>
+        {/* <OpacityBackground/> */}
+        <StartScreen/>
+      </div>
     </div>
   )
 }
+
 
 export default AppFunction;
