@@ -2,8 +2,7 @@ import React, { useState} from 'react';
 import styled from '@emotion/styled'
 import LoopTrue from './components/startscreen/testanimation';
 import StartScreen from './components/startscreen/startscreen';
-
-
+import ParallaxTestClass from './components/parallaxLearning/ParallaxTest'
 
 let AppDisplay = styled.div
   `
@@ -41,10 +40,11 @@ function AppFunction() {
 
   return (
     <div>
-      {AppOutput}
+      {/* {AppOutput} */}
       <div>
         {/* <OpacityBackground/> */}
-        <StartScreen/>
+        {/* <StartScreen/> */}
+        <ParallaxTestClass/>
       </div>
     </div>
   )

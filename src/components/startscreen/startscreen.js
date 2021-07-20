@@ -20,6 +20,7 @@ function ScreenToArray() {
   
 function Nicaea (){
     let WindowsArray = [];
+     // eslint-disable-next-line
     WindowsArray = ScreenToArray();
     const [state, stateAPI] = useState(false);
     const {opacity, transform} = useSpring({
@@ -34,7 +35,7 @@ function Nicaea (){
     })
       
     return(
-        <div onClick={() => stateAPI(state => true)}>
+        <div onClick={() => stateAPI(state => !state)}>
             {/* Background */}
             <animated.div style={{ 
                 width: '100vw', 
@@ -42,7 +43,9 @@ function Nicaea (){
                 position: 'absolute', 
                 bottom: '0', 
                 opacity: opacity.to(o => 0.95 - o), 
-                backgroundColor: '#061e32'}}/>
+                background: `linear-gradient(100deg, #96fbc4 0%, #061e32 100%)`,
+                // backgroundColor: '#061e32'
+            }}/>
 
             <animated.div style= {{
                 width: 180,
